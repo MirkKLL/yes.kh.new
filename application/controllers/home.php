@@ -42,15 +42,31 @@ class Home extends CI_Controller {
         );
         $this->sFolder = $folder;
         $this->load->view('header', $header);
-
-        //$aImages = $this->get_shots($folder);
-       // $sSlides = $this->prepare_slide($aImages);
-       
-        //$home = array('slides' => $aImages);
-		//$this->load->view('home', $home);
-
 		$this->load->view('footer');
 	}
+
+	public function gallery($page='love')
+	{
+
+		$images = $this->build_carousel($page);
+		//$carousel_indicators = $this->get_indicators();
+		$carousel_indicators = "";
+
+		/*$this->load->view('home', array('dbg' => $images));
+		return;*/
+		$header = array(
+               'title' => 'Фотограф Евгений Сидельников',
+               'description' => "фотограф харьков, свадебный фотограф, лав стори харьков, love story харьков, фотосессия харьков, yevgeniy sidelnikov, портфолио",
+               'keywords' => "фотограф, харьков, свадебный, фотосессии, евгений, сидельников, yevgeniy, sidelnikov, портфолио",
+               'cur' => $page,
+               'images' => $images,
+               'indicators' => $carousel_indicators
+        );
+        
+        $this->load->view('header', $header);
+		$this->load->view('footer');
+	}
+
 	public function get_home_indicators()
 	{	
 		$i = 0;
@@ -75,6 +91,30 @@ class Home extends CI_Controller {
 		}
 		return $aImages;
 	}
+
+	public function build_carousel($page)
+	{
+		$images = $this->get_shots($page);
+		
+		$i = 0;
+		$sHtml = "";
+		foreach ($images as $id => $url) {
+			$sHtml .= '<div class="item'; 
+			if ($i == 0) {
+				$sHtml .= " active";
+			}
+			$sHtml .= '">
+				<img src="';
+			$sHtml .= $url;	
+			$sHtml .= '" alt="Yevgeniy Sidelnikov portfolio" />';
+			$sHtml .=	'</div>';
+
+
+			$i++;
+		}
+		return $sHtml;
+	}
+
 	public function build_home_carousel()
 	{
 		$home_images = $this->prepare_home_images();
@@ -187,16 +227,20 @@ class Home extends CI_Controller {
 
 	public function get_shots($folder)
 	{
+		$url = base_url();
 		$dir    = "./img/portfolio/$folder/";
 		$files1 = scandir($dir);
 		unset($files1[0]);
 		unset($files1[1]);
+		$files = array();
 		foreach ($files1 as $k => $name) {
 			if ($name == "Thumbs.db") {
 				unset($files1[$k]);
+				continue;
 			}
+			$files[] = $url."img/portfolio/$folder/$name";
 		}
-		return $files1;
+		return $files;
 	}
 
 	public function prepare_slide($urls)
