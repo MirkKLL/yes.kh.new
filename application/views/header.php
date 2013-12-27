@@ -3,96 +3,180 @@ $url = base_url();
 ?>
 
 <!DOCTYPE html>
-<html><head>
-<title><?=$title?></title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="<?=$description?>" />
-<meta name="keywords" content="<?=$keywords?>" />
-<meta name="copyright" content="Yevgeniy Sidelnikov" />
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="<?=$url?>js/kickstart.js"></script>                                  <!-- KICKSTART -->
-<link rel="stylesheet" type="text/css" href="<?=$url?>css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-<link href="<?=$url?>/img/ico/favicon.ico" rel="shortcut icon" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="<?=$url?>style.css" media="all" />                          <!-- CUSTOM STYLES -->
-<style type="text/css">
-		#bx-pager .active{
-			border-color: black;
-			border-width: 3px;
-			border-style: solid;
-		}
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<meta name="description" content="<?=$description?>" />
+	<meta name="keywords" content="<?=$keywords?>" />
+	<meta name="copyright" content="Yevgeniy Sidelnikov" />
+	<title><?=$title?></title>
 
-		#bx-pager{
-			float: left;
-			width: 100%;
-		}
+	<link href="<?=$url?>/img/ico/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<!-- Included Bootstrap CSS Files -->
+	<link rel="stylesheet" href="<?=$url?>css/bootstrap.min.css" />
+	
+	<!-- Just include this Css file -->	
+	<link rel="stylesheet" href="<?=$url?>css/jquery.carousel.fullscreen.css" />
 
-		#bx-pager img{
-			margin: 5px;
-			max-height: 100px;
-			max-width: 100px;
-		}
+	<!-- gallery css -->	
+	<link rel="stylesheet" href="<?=$url?>css/blueimp-gallery.min.css">
+	<link rel="stylesheet" href="<?=$url?>css/bootstrap-image-gallery.min.css">
+	
+	<!-- My custom css -->	
+	<link rel="stylesheet" href="<?=$url?>css/my.css" />
 
-		.bx-wrapper img{
-			width: auto;
-			margin: 0 auto;
-		}
-
-		.grid img {
-			max-height: 850px;
-		}
-
-		/*.bx-viewport {
-			max-height: 800px;
-		}*/
-
-</style>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-39874009-1', 'yes.kh.ua');
-	  ga('send', 'pageview');
-
-	</script>
 </head>
 <body>
 
-<!-- <div class="col_12" style="position:absolute; text-align:right;">
- Address 
-	<address><p>
-		photo@yes.kh.ua<i class="icon-envelope-alt icon-2x pull-right" style="margin-top: -7px;"></i> <br /><br />
-		+3 8(093) 87 87 172<i class="icon-phone-sign icon-2x pull-right" style="margin-top: -7px;"></i> <br /><br />
-		<a href="https://vk.com/mirkill" target="_blank">Vkontakte</a> <img src="<?=$url?>img/ico/vk_50.png" alt="vk" width=30 height=30 style="margin: -7px -7px -3px 5px"> <br /><br />
-		<a href="https://twitter.com/mirkill" target="_blank">Twitter</a><i class="icon-twitter-sign icon-2x pull-right" style="margin-top: -7px;"></i> <br /><br />
-		<a href="http://www.facebook.com/evgeniy.sidelnikov.1" target="_blank">Facebook</a><i class="icon-facebook-sign icon-2x pull-right" style="margin-top: -7px;"></i> <br /><br />
-		<a href="https://plus.google.com/114239259741778424399" target="_blank">Google+</a><i class="icon-google-plus-sign icon-2x pull-right" style="margin-top: -7px;"></i> <br /><br />
-		
-		</p>
-	</address>
-</div> -->
+	<div class="navbar-wrapper">
+      <div class="container" style="width: 700px;">
 
-<div class="grid">
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Yevgeniy Sidelnikov</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="<?=$url?>home/love">Home</a></li>
+                <li><a href="<?=$url?>/home/portrets">Portrets</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Love Story <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="<?=$url?>home/natriy">natr</a></li>
+                    <li><a href="<?=$url?>home/pavlinenki">pavl</a></li>
+                    <li><a href="<?=$url?>home/mykhailo_anna">Mikle</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Wedding <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="<?=$url?>home/reportage">Reportage</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li><a href="<?=$url?>home/contacts">Info</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+<!-- This is a typical Twitter Bootstrap Carousel -->
+	<!-- Carousel -->
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="http://cs413628.vk.me/v413628921/1504/88-FElY2Lqs.jpg" alt="" />
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Bootstrap Carousel Fullscreen</h1>
+						<p class="lead">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="item">
+				<img src="http://cs413628.vk.me/v413628921/14b4/BoyP6Flo-uQ.jpg" alt="" />
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Bootstrap Carousel Fullscreen</h1>
+						<p class="lead">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<img src="http://cs413628.vk.me/v413628921/14a0/xytdmViQftM.jpg" alt="" />
+				
+			</div>
+			<div class="item">
+				<img src="http://cs413628.vk.me/v413628921/148c/530AAR0oxLs.jpg" alt="" />
+				
+			</div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+
 	
-<!-- ===================================== END HEADER ===================================== -->
-	 
-<div class="col_12">
-	<div class="col_12">
-		<!-- Menu Horizontal -->
-		<ul class="menu">
-			<!-- <li class="current"><a href="<?=$url?>"><i class="icon-camera"></i> Home</a></li> -->
-			<li <?php if($cur == 'love' || $cur == 'mykhailo_anna' || $cur == 'pavlinenki'){ ?>class="current"<?php } ?>><a href="<?=$url?>home/love"><i class="icon-heart"></i> Love Story</a>
-				<ul>
-					<li><a href="<?=$url?>home/natriy">Натрий и Дария</a></li>
-					<li><a href="<?=$url?>home/pavlinenki">Артем и Мира</a></li>
-					<li><a href="<?=$url?>home/mykhailo_anna">Миша и Анна</a></li>
-				</ul>
-			</li>
-			<li <?php if($cur == 'portrets'){ ?>class="current"<?php } ?>><a href="<?=$url?>/home/portrets"><i class="icon-user"></i> Портреты</a></li>			
-			<li <?php if($cur == 'reportage'){ ?>class="current"<?php } ?>><a href="<?=$url?>home/reportage"><i class="icon-camera"></i> Репортаж</a></li>			
-			<li <?php if($cur == 'contacts'){ ?>class="current"<?php } ?>><a href="<?=$url?>home/contacts"><i class="icon-envelope-alt"></i> Контакты</a></li>			
-			<!-- <li <?php if($cur == 'price'){ ?>class="current"<?php } ?>><a href="<?=$url?>home/price"><i class="icon-credit-card"></i> Услуги</a></li> -->
-		</ul>
+	<!-- The container for the list of images -->
+    <div id="links" class="links_gallery">
+        <a href="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" title="Banana" data-gallery>
+            <img src="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" alt="Banana" height=100>
+        </a>
+        <a href="http://cs424830.vk.me/v424830921/a11/McV-PaJLLrg.jpg" title="Banana" data-gallery>
+            <img src="http://cs424830.vk.me/v424830921/a11/McV-PaJLLrg.jpg" alt="Banana" height=100>
+        </a>
+        <a href="http://cs424830.vk.me/v424830921/a07/W0TIYZWzkmc.jpg" title="Banana" data-gallery>
+            <img src="http://cs424830.vk.me/v424830921/a07/W0TIYZWzkmc.jpg" alt="Banana" height=100>
+        </a>
+    </div>
+
+
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+	<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+	    <!-- The container for the modal slides -->
+	    <div class="slides"></div>
+	    <!-- Controls for the borderless lightbox -->
+	    <h3 class="title"></h3>
+	    <a class="prev">‹</a>
+	    <a class="next">›</a>
+	    <a class="close">×</a>
+	    <a class="play-pause"></a>
+	    <ol class="indicator"></ol>
+	    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+	    <div class="modal fade">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <button type="button" class="close" aria-hidden="true">&times;</button>
+	                    <h4 class="modal-title"></h4>
+	                </div>
+	                <div class="modal-body next"></div>
+	                <div class="modal-footer">
+	                    <button type="button" class="btn btn-default pull-left prev">
+	                        <i class="glyphicon glyphicon-chevron-left"></i>
+	                        Previous
+	                    </button>
+	                    <button type="button" class="btn btn-primary next">
+	                        Next
+	                        <i class="glyphicon glyphicon-chevron-right"></i>
+	                    </button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 	</div>

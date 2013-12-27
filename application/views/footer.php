@@ -1,14 +1,14 @@
+<?php
+	$url = base_url(); 
+?>
+	<script src="<?=$url?>js/jquery-1.10.0.min.js"></script>
+	<script src="<?=$url?>js/bootstrap.min.js"></script>
 
-</div>
+	<!-- Just include this Js file -->
+	<script src="<?=$url?>js/jquery.carousel.fullscreen.js"></script>
 
-</div><!-- END GRID -->
-
-<!-- ===================================== START FOOTER ===================================== -->
-<div class="clear"></div>
-<div id="footer">
-&copy; Copyright 2012–2013 All Rights Reserved Yevgeniy Sidelnikov ©. 
-<br> <b>+3 8 (093) 878-71-72</b>
-<br>This website was built with <a href="http://www.99lime.com">HTML KickStart</a>
-</div>
-
-</body></html>
+	<script src="<?=$url?>js/jquery.blueimp-gallery.min.js"></script>
+	<script src="<?=$url?>js/bootstrap-image-gallery.min.js"></script>
+	<script src="<?=$url?>js/my.js"></script>
+</body>
+</html>
