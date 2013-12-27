@@ -86,40 +86,12 @@ $url = base_url();
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
-			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			<?=$indicators?>
 		</ol>
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
-			<div class="item active">
-				<img src="http://cs413628.vk.me/v413628921/1504/88-FElY2Lqs.jpg" alt="" />
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>Bootstrap Carousel Fullscreen</h1>
-						<p class="lead">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="item">
-				<img src="http://cs413628.vk.me/v413628921/14b4/BoyP6Flo-uQ.jpg" alt="" />
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>Bootstrap Carousel Fullscreen</h1>
-						<p class="lead">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<img src="http://cs413628.vk.me/v413628921/14a0/xytdmViQftM.jpg" alt="" />
-				
-			</div>
-			<div class="item">
-				<img src="http://cs413628.vk.me/v413628921/148c/530AAR0oxLs.jpg" alt="" />
-				
-			</div>
+			<?=$images?>
 		</div>
 
 		<!-- Controls -->
@@ -131,7 +103,7 @@ $url = base_url();
 		</a>
 	</div>
 
-	
+
 	<!-- The container for the list of images -->
     <div id="links" class="links_gallery">
         <a href="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" title="Banana" data-gallery>
