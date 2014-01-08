@@ -1,4 +1,12 @@
 .links_gallery{
 	position: absolute;
-	margin: -100px 0 100px 100px;
+	margin: -45% 0 0px 30%;
+	max-width: 800px;
+	width: 60%;
+	background-image: url(http://yes.kh.ua/img/bg_white.png);
+}
+
+.links_gallery img{
+	height: 150px;
+	margin: 10px;
 }

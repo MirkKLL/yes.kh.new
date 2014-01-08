@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/yes.kh.ua/';
+$config['base_url']	= 'http://yes.kh.ua/';
 
 /*
 |--------------------------------------------------------------------------
@@ -69,7 +69,8 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+//$config['language']	= 'english';
+$config['language']	= 'russian';
 
 /*
 |--------------------------------------------------------------------------

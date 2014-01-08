@@ -29,6 +29,7 @@ class Home extends CI_Controller {
 	{
 		$home_images = $this->build_home_carousel();
 		$carousel_indicators = $this->get_home_indicators();
+		$controls = $this->get_gallery_controls();
 
 		/*$this->load->view('home', array('dbg' => $carousel_indicators));
 		return;*/
@@ -38,7 +39,8 @@ class Home extends CI_Controller {
                'keywords' => "фотограф, харьков, свадебный, фотосессии, евгений, сидельников, yevgeniy, sidelnikov, портфолио",
                'cur' => $folder,
                'images' => $home_images,
-               'indicators' => $carousel_indicators
+               'indicators' => $carousel_indicators,
+               'controls' => $controls
         );
         $this->sFolder = $folder;
         $this->load->view('header', $header);
@@ -60,18 +62,36 @@ class Home extends CI_Controller {
                'keywords' => "фотограф, харьков, свадебный, фотосессии, евгений, сидельников, yevgeniy, sidelnikov, портфолио",
                'cur' => $page,
                'images' => $images,
-               'indicators' => $carousel_indicators
+               'indicators' => $carousel_indicators,
+               'controls' => ''
         );
         
         $this->load->view('header', $header);
+        $params['album'] = $this->prepare_gallery($page);
+        $this->load->view('gallery', $params);
 		$this->load->view('footer');
+	}
+
+	public function prepare_gallery($page)
+	{
+		$aShots = $this->get_shots($page);
+		$sTitle = $this->aCategories[$page]['title'];
+		$sHtml = '<div id="links" class="links_gallery">';
+		foreach ($aShots as $key => $url) {
+			$sHtml .= "<a href='$url' title='$sTitle' data-gallery>
+							<img src='$url' alt='$sTitle' class='img-rounded'></a>";
+
+		}
+		$sHtml .= '</div>';
+
+		return $sHtml;
 	}
 
 	public function get_home_indicators()
 	{	
 		$i = 0;
 		$sHtml = "";
-		foreach ($this->aCategories as $key => $value) {
+		foreach ($this->aCategories as $key) {
 			$active = $i == 0 ? 'class="active"' : '';
 			$sHtml .= '<li data-target="#carousel-example-generic" data-slide-to="'.$i.'"'.$active.'></li>';
 			$i++;
@@ -143,26 +163,6 @@ class Home extends CI_Controller {
 		return $sHtml;
 	}
 
-	public function index_old($folder = "love")
-	{
-		$header = array(
-               'title' => 'Фотограф Евгений Сидельников Главная',
-               'description' => "фотограф харьков, свадебный фотограф, лав стори харьков, love story харьков, фотосессия харьков, yevgeniy sidelnikov, портфолио",
-               'keywords' => "фотограф, харьков, свадебный, фотосессии, евгений, сидельников, yevgeniy, sidelnikov, портфолио",
-               'cur' => $folder
-        );
-        $this->sFolder = $folder;
-        $this->load->view('header', $header);
-
-        $aImages = $this->get_shots($folder);
-        $sSlides = $this->prepare_slide($aImages);
-        $sPager = $this->prepare_pager($aImages);
-        $home = array('slides' => $sSlides, 
-        				'pager' => $sPager);
-		$this->load->view('home', $home);
-
-		$this->load->view('footer');
-	}
 
 	public function portrets()
 	{
@@ -225,6 +225,9 @@ class Home extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	/**
+	*Get all shots from folder
+	*/
 	public function get_shots($folder)
 	{
 		$url = base_url();
@@ -243,29 +246,18 @@ class Home extends CI_Controller {
 		return $files;
 	}
 
-	public function prepare_slide($urls)
+	/*
+	*Get left and right button for courusel on main page
+	*/
+	public function get_gallery_controls()
 	{
-		$url = base_url();
-		$folder = $this->sFolder;
-		$sResults = "";
-		foreach ($urls as $key => $value) {
-			$sResults .= "<li><img src=\"$url/img/portfolio/$folder/$value\"  /></li>";
-		}
-		return $sResults;
+		return '<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>';
 	}
-
-/*	public function prepare_pager($urls)
-	{
-		$url = base_url();
-		$folder = $this->sFolder;
-		$sResults = "";
-		$i = 0;
-		foreach ($urls as $key => $value) {
-			$sResults .= "<a data-slide-index=\"$i\" href=\"\"><img src=\"$url/img/portfolio/$folder/$value\" /></a>";
-			$i++;
-		}
-		return $sResults;
-	}*/
 
 
 }

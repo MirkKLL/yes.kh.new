@@ -40,18 +40,18 @@ $url = base_url();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Yevgeniy Sidelnikov</a>
+              <a class="navbar-brand" href="<?=$url?>">Yevgeniy Sidelnikov</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="<?=$url?>home/love">Home</a></li>
-                <li><a href="<?=$url?>/home/portrets">Portrets</a></li>
+                <li class="active"><a href="<?=$url?>">Home</a></li>
+                <li><a href="<?=$url?>home/gallery/portrets">Portrets</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Love Story <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="<?=$url?>home/natriy">natr</a></li>
-                    <li><a href="<?=$url?>home/pavlinenki">pavl</a></li>
-                    <li><a href="<?=$url?>home/mykhailo_anna">Mikle</a></li>
+                    <li><a href="<?=$url?>home/gallery/natriy">natr</a></li>
+                    <li><a href="<?=$url?>home/gallery/pavlinenki">pavl</a></li>
+                    <li><a href="<?=$url?>home/gallery/mykhailo_anna">Mikle</a></li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Nav header</li>
                     <li><a href="#">Separated link</a></li>
@@ -95,27 +95,9 @@ $url = base_url();
 		</div>
 
 		<!-- Controls -->
-		<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left"></span>
-		</a>
-		<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right"></span>
-		</a>
+		<?=$controls?>
 	</div>
 
-
-	<!-- The container for the list of images -->
-    <div id="links" class="links_gallery">
-        <a href="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" title="Banana" data-gallery>
-            <img src="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" alt="Banana" height=100>
-        </a>
-        <a href="http://cs424830.vk.me/v424830921/a11/McV-PaJLLrg.jpg" title="Banana" data-gallery>
-            <img src="http://cs424830.vk.me/v424830921/a11/McV-PaJLLrg.jpg" alt="Banana" height=100>
-        </a>
-        <a href="http://cs424830.vk.me/v424830921/a07/W0TIYZWzkmc.jpg" title="Banana" data-gallery>
-            <img src="http://cs424830.vk.me/v424830921/a07/W0TIYZWzkmc.jpg" alt="Banana" height=100>
-        </a>
-    </div>
 
 
     <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
