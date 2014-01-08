@@ -64,14 +64,33 @@ class Home extends CI_Controller {
         );
         
         $this->load->view('header', $header);
+        $params['album'] = $this->prepare_gallery($page);
+        $this->load->view('gallery', $params);
 		$this->load->view('footer');
+	}
+
+	public function prepare_gallery($page)
+	{
+		return '<!-- The container for the list of images -->
+	<?=$album?>
+    <div id="links" class="links_gallery">
+        <a href="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" title="Banana" data-gallery>
+            <img src="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" alt="Banana" height=100>
+        </a>
+        <a href="http://cs424830.vk.me/v424830921/a11/McV-PaJLLrg.jpg" title="Banana" data-gallery>
+            <img src="http://cs424830.vk.me/v424830921/a11/McV-PaJLLrg.jpg" alt="Banana" height=100>
+        </a>
+        <a href="http://cs424830.vk.me/v424830921/a07/W0TIYZWzkmc.jpg" title="Banana" data-gallery>
+            <img src="http://cs424830.vk.me/v424830921/a07/W0TIYZWzkmc.jpg" alt="Banana" height=100>
+        </a>
+    </div>';
 	}
 
 	public function get_home_indicators()
 	{	
 		$i = 0;
 		$sHtml = "";
-		foreach ($this->aCategories as $key => $value) {
+		foreach ($this->aCategories as $key) {
 			$active = $i == 0 ? 'class="active"' : '';
 			$sHtml .= '<li data-target="#carousel-example-generic" data-slide-to="'.$i.'"'.$active.'></li>';
 			$i++;
