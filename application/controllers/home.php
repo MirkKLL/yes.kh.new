@@ -29,6 +29,7 @@ class Home extends CI_Controller {
 	{
 		$home_images = $this->build_home_carousel();
 		$carousel_indicators = $this->get_home_indicators();
+		$controls = $this->get_gallery_controls();
 
 		/*$this->load->view('home', array('dbg' => $carousel_indicators));
 		return;*/
@@ -38,7 +39,8 @@ class Home extends CI_Controller {
                'keywords' => "фотограф, харьков, свадебный, фотосессии, евгений, сидельников, yevgeniy, sidelnikov, портфолио",
                'cur' => $folder,
                'images' => $home_images,
-               'indicators' => $carousel_indicators
+               'indicators' => $carousel_indicators,
+               'controls' => $controls
         );
         $this->sFolder = $folder;
         $this->load->view('header', $header);
@@ -60,7 +62,8 @@ class Home extends CI_Controller {
                'keywords' => "фотограф, харьков, свадебный, фотосессии, евгений, сидельников, yevgeniy, sidelnikov, портфолио",
                'cur' => $page,
                'images' => $images,
-               'indicators' => $carousel_indicators
+               'indicators' => $carousel_indicators,
+               'controls' => ''
         );
         
         $this->load->view('header', $header);
@@ -71,19 +74,17 @@ class Home extends CI_Controller {
 
 	public function prepare_gallery($page)
 	{
-		return '<!-- The container for the list of images -->
-	<?=$album?>
-    <div id="links" class="links_gallery">
-        <a href="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" title="Banana" data-gallery>
-            <img src="http://cs9279.vk.me/v9279921/34c/VBYZh00nVPw.jpg" alt="Banana" height=100>
-        </a>
-        <a href="http://cs424830.vk.me/v424830921/a11/McV-PaJLLrg.jpg" title="Banana" data-gallery>
-            <img src="http://cs424830.vk.me/v424830921/a11/McV-PaJLLrg.jpg" alt="Banana" height=100>
-        </a>
-        <a href="http://cs424830.vk.me/v424830921/a07/W0TIYZWzkmc.jpg" title="Banana" data-gallery>
-            <img src="http://cs424830.vk.me/v424830921/a07/W0TIYZWzkmc.jpg" alt="Banana" height=100>
-        </a>
-    </div>';
+		$aShots = $this->get_shots($page);
+		$sTitle = $this->aCategories[$page]['title'];
+		$sHtml = '<div id="links" class="links_gallery">';
+		foreach ($aShots as $key => $url) {
+			$sHtml .= "<a href='$url' title='$sTitle' data-gallery>
+							<img src='$url' alt='$sTitle' ></a>";
+
+		}
+		$sHtml .= '</div>';
+
+		return $sHtml;
 	}
 
 	public function get_home_indicators()
@@ -262,6 +263,16 @@ class Home extends CI_Controller {
 		return $files;
 	}
 
+	public function get_gallery_controls()
+	{
+		return '<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>';
+	}
+
 	public function prepare_slide($urls)
 	{
 		$url = base_url();
@@ -272,19 +283,5 @@ class Home extends CI_Controller {
 		}
 		return $sResults;
 	}
-
-/*	public function prepare_pager($urls)
-	{
-		$url = base_url();
-		$folder = $this->sFolder;
-		$sResults = "";
-		$i = 0;
-		foreach ($urls as $key => $value) {
-			$sResults .= "<a data-slide-index=\"$i\" href=\"\"><img src=\"$url/img/portfolio/$folder/$value\" /></a>";
-			$i++;
-		}
-		return $sResults;
-	}*/
-
 
 }
