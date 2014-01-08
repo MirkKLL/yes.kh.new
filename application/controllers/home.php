@@ -79,7 +79,7 @@ class Home extends CI_Controller {
 		$sHtml = '<div id="links" class="links_gallery">';
 		foreach ($aShots as $key => $url) {
 			$sHtml .= "<a href='$url' title='$sTitle' data-gallery>
-							<img src='$url' alt='$sTitle' ></a>";
+							<img src='$url' alt='$sTitle' class='img-rounded'></a>";
 
 		}
 		$sHtml .= '</div>';
@@ -163,26 +163,6 @@ class Home extends CI_Controller {
 		return $sHtml;
 	}
 
-	public function index_old($folder = "love")
-	{
-		$header = array(
-               'title' => 'Фотограф Евгений Сидельников Главная',
-               'description' => "фотограф харьков, свадебный фотограф, лав стори харьков, love story харьков, фотосессия харьков, yevgeniy sidelnikov, портфолио",
-               'keywords' => "фотограф, харьков, свадебный, фотосессии, евгений, сидельников, yevgeniy, sidelnikov, портфолио",
-               'cur' => $folder
-        );
-        $this->sFolder = $folder;
-        $this->load->view('header', $header);
-
-        $aImages = $this->get_shots($folder);
-        $sSlides = $this->prepare_slide($aImages);
-        $sPager = $this->prepare_pager($aImages);
-        $home = array('slides' => $sSlides, 
-        				'pager' => $sPager);
-		$this->load->view('home', $home);
-
-		$this->load->view('footer');
-	}
 
 	public function portrets()
 	{
@@ -245,6 +225,9 @@ class Home extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	/**
+	*Get all shots from folder
+	*/
 	public function get_shots($folder)
 	{
 		$url = base_url();
@@ -263,6 +246,9 @@ class Home extends CI_Controller {
 		return $files;
 	}
 
+	/*
+	*Get left and right button for courusel on main page
+	*/
 	public function get_gallery_controls()
 	{
 		return '<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -273,15 +259,5 @@ class Home extends CI_Controller {
 		</a>';
 	}
 
-	public function prepare_slide($urls)
-	{
-		$url = base_url();
-		$folder = $this->sFolder;
-		$sResults = "";
-		foreach ($urls as $key => $value) {
-			$sResults .= "<li><img src=\"$url/img/portfolio/$folder/$value\"  /></li>";
-		}
-		return $sResults;
-	}
 
 }

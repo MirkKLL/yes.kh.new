@@ -2,8 +2,8 @@
 	position: absolute;
 	margin: -45% 0 0px 30%;
 	max-width: 800px;
-	max-height: 600px;
 	width: 60%;
+	background-image: url(http://yes.kh.ua/img/bg_white.png);
 }
 
 .links_gallery img{
