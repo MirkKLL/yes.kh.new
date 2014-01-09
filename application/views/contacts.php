@@ -1,6 +1,6 @@
 		 <br /><br />
 		 <br /><br />
-<div class="col_3"><img src="<?=$url?>img/avtoportret.jpg" alt="vk" style="margin: -7px 0 -4px 0px"> 
+<div class="col_3"><img src="http://cs402121.vk.me/v402121426/a7ed/rC-ActYgcGs.jpg" alt="vk" style="margin: -7px 0 -4px 0px"> 
 </div>
 <div class="col_8"><i class="icon-envelope-alt icon-2x pull-left" style="margin-top: -7px;"></i> photo@yes.kh.ua</div>
 <div class="col_8"><i class="icon-phone-sign icon-2x pull-left" style="margin-top: -7px;"></i> +3 8(093) 87 87 172</div>
