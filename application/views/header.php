@@ -25,11 +25,13 @@ $url = base_url();
 	<!-- My custom css -->	
 	<link rel="stylesheet" href="<?=$url?>css/my.css" />
 
+	<script src="<?=$url?>js/jquery-1.10.0.min.js"></script>
+
 </head>
 <body>
 
 	<div class="navbar-wrapper">
-      <div class="container" style="width: 700px;">
+      <div class="container" style="width: 900px;">
 
         <div class="navbar navbar-inverse navbar-static-top" role="navigation">
           <div class="container">
@@ -40,7 +42,7 @@ $url = base_url();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="<?=$url?>">Yevgeniy Sidelnikov</a>
+              <a class="navbar-brand" href="<?=$url?>">Евгений Сидельников</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -69,7 +71,9 @@ $url = base_url();
                     <li><a href="#">One more separated link</a></li>
                   </ul>
                 </li>
-                <li class="<?php echo $cur=='contacts'? 'active' : ''; ?>"><a href="<?=$url?>home/contacts">Info</a></li>
+                <li class="<?php echo $cur=='reportage'? 'active' : ''; ?>"><a href="<?=$url?>home/gallery/reportage">Репортаж</a></li>
+                <li class="<?php echo $cur=='contacts'? 'active' : ''; ?>"><a href="<?=$url?>home/contacts">Контакты</a></li>
+                <!-- <li><a href="#">+3 8 (093) 878 71 72</a></li> -->
               </ul>
             </div>
           </div>

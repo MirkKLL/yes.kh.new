@@ -183,13 +183,14 @@ class Home extends CI_Controller {
                'cur' => 'contacts',
                'images' => '',
                'controls' => '',
+               'indicators' => '',
                'url' => base_url()
         );
         $this->load->view('header', $header);
 
 		$this->load->view('contacts');
 
-		//$this->load->view('footer');
+		$this->load->view('footer');
 	}
 
 	/**
