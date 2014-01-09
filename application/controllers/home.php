@@ -25,8 +25,9 @@ class Home extends CI_Controller {
 			)
 		 );
 
-	public function index($folder = "love")
+	public function index()
 	{
+		$folder = "home";
 		$home_images = $this->build_home_carousel();
 		$carousel_indicators = $this->get_home_indicators();
 		$controls = $this->get_gallery_controls();
@@ -42,7 +43,6 @@ class Home extends CI_Controller {
                'indicators' => $carousel_indicators,
                'controls' => $controls
         );
-        $this->sFolder = $folder;
         $this->load->view('header', $header);
 		$this->load->view('footer');
 	}
@@ -51,11 +51,8 @@ class Home extends CI_Controller {
 	{
 
 		$images = $this->build_carousel($page);
-		//$carousel_indicators = $this->get_indicators();
 		$carousel_indicators = "";
 
-		/*$this->load->view('home', array('dbg' => $images));
-		return;*/
 		$header = array(
                'title' => 'Фотограф Евгений Сидельников',
                'description' => "фотограф харьков, свадебный фотограф, лав стори харьков, love story харьков, фотосессия харьков, yevgeniy sidelnikov, портфолио",
@@ -78,8 +75,7 @@ class Home extends CI_Controller {
 		$sTitle = $this->aCategories[$page]['title'];
 		$sHtml = '<div id="links" class="links_gallery">';
 		foreach ($aShots as $key => $url) {
-			$sHtml .= "<a href='$url' title='$sTitle' data-gallery>
-							<img src='$url' alt='$sTitle' class='img-rounded'></a>";
+			$sHtml .= "<a href='$url' title='$sTitle' data-gallery><img src='$url' alt='$sTitle' class='img-rounded'></a>";
 
 		}
 		$sHtml .= '</div>';
@@ -163,37 +159,6 @@ class Home extends CI_Controller {
 		return $sHtml;
 	}
 
-
-	public function portrets()
-	{
-		$this->index("portrets");
-	}
-
-	public function reportage()
-	{
-		$this->index("reportage");
-	}
-
-	public function love()
-	{
-		$this->index("love");
-	}
-
-	public function mykhailo_anna()
-	{
-		$this->index("mykhailo_anna");
-	}
-
-	public function pavlinenki()
-	{
-		$this->index("pavlinenki");
-	}
-
-	public function natriy()
-	{
-		$this->index("natriy");
-	}
-
 	public function price()
 	{
 		$header = array(
@@ -215,7 +180,10 @@ class Home extends CI_Controller {
                'title' => 'Фотограф Евгений Сидельников Контакты',
                'description' => "контактная информация, телефон, почта, фотосъемка харьков, фотограф харьков, свадебный фотограф, лав стори харьков, love story харьков, фотосессия харьков, yevgeniy sidelnikov",
                'keywords' => "контакты, телефон, email, e-mail, фотограф, харьков, свадебный, фотосессии, евгений, сидельников, yevgeniy, sidelnikov",
-               'cur' => 'price',
+               'cur' => 'contacts',
+               'images' => '',
+               'controls' => '',
+               'indicators' => '',
                'url' => base_url()
         );
         $this->load->view('header', $header);

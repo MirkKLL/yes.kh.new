@@ -1,9 +1,7 @@
 <?php
 	$url = base_url(); 
 ?>
-	<script src="<?=$url?>js/jquery-1.10.0.min.js"></script>
 	<script src="<?=$url?>js/bootstrap.min.js"></script>
-
 	<!-- Just include this Js file -->
 	<script src="<?=$url?>js/jquery.carousel.fullscreen.js"></script>
 

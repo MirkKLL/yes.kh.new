@@ -1,11 +1,24 @@
-		 <br /><br />
-		 <br /><br />
-<div class="col_3"><img src="<?=$url?>img/avtoportret.jpg" alt="vk" style="margin: -7px 0 -4px 0px"> 
+<script type="text/javascript">
+	$(window).load(function() {
+		//fix style
+		$("#carousel-example-generic").css('display', 'none');
+	});
+</script>
+<div class="container" id="contacts">
+	<h1>Контакты</h1>
+	<div class="row-fluid">
+	  <div class="span4"><img src="http://cs402121.vk.me/v402121426/a7ed/rC-ActYgcGs.jpg" alt="vk" style="margin: 10px; height: 100px;"></div>
+	  <div class="span4">
+	  	photo@yes.kh.ua <br />
+		+3 8(093) 87 87 172 <br />
+		 <a href="https://vk.com/mirkill" target="_blank">Vkontakte</a> <br />
+		<a href="https://twitter.com/mirkill" target="_blank">Twitter</a> <br />
+		<a href="http://www.facebook.com/evgeniy.sidelnikov.1" target="_blank">Facebook</a> <br />
+		 <a href="https://plus.google.com/114239259741778424399" target="_blank">Google+</a> <br />
+
+	  </div>
+	</div>
+
+
 </div>
-<div class="col_8"><i class="icon-envelope-alt icon-2x pull-left" style="margin-top: -7px;"></i> photo@yes.kh.ua</div>
-<div class="col_8"><i class="icon-phone-sign icon-2x pull-left" style="margin-top: -7px;"></i> +3 8(093) 87 87 172</div>
-<div class="col_8"><img src="<?=$url?>img/ico/vk_50.png" alt="vk" width=30 height=30 style="margin: -7px 0 -4px -3px"> <a href="https://vk.com/mirkill" target="_blank">Vkontakte</a></div>
-<div class="col_8"><i class="icon-twitter-sign icon-2x pull-left" style="margin-top: -7px;"></i><a href="https://twitter.com/mirkill" target="_blank">Twitter</a></div>
-<div class="col_8"><i class="icon-facebook-sign icon-2x pull-left" style="margin-top: -7px;"></i><a href="http://www.facebook.com/evgeniy.sidelnikov.1" target="_blank">Facebook</a></div>
-<div class="col_8"><i class="icon-google-plus-sign icon-2x pull-left" style="margin-top: -7px;"></i> <a href="https://plus.google.com/114239259741778424399" target="_blank">Google+</a></div>
 

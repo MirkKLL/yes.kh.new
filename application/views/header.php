@@ -25,11 +25,13 @@ $url = base_url();
 	<!-- My custom css -->	
 	<link rel="stylesheet" href="<?=$url?>css/my.css" />
 
+	<script src="<?=$url?>js/jquery-1.10.0.min.js"></script>
+
 </head>
 <body>
 
 	<div class="navbar-wrapper">
-      <div class="container" style="width: 700px;">
+      <div class="container" style="width: 900px;">
 
         <div class="navbar navbar-inverse navbar-static-top" role="navigation">
           <div class="container">
@@ -40,26 +42,25 @@ $url = base_url();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="<?=$url?>">Yevgeniy Sidelnikov</a>
+              <a class="navbar-brand" href="<?=$url?>">Евгений Сидельников</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="<?=$url?>">Home</a></li>
-                <li><a href="<?=$url?>home/gallery/portrets">Portrets</a></li>
-                <li class="dropdown">
+                <li class="<?php echo $cur=='home'? 'active' : ''; ?>" ><a href="<?=$url?>">Главная</a></li>
+                <li class="<?php echo $cur=='portrets'? 'active' : ''; ?>"><a href="<?=$url?>home/gallery/portrets">Портреты</a></li>
+                <li class="dropdown <?php echo $cur=='love' || $cur=='natriy' || $cur=='pavlinenki' || $cur=='mykhailo_anna' ? 'active' : ''; ?>">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Love Story <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="<?=$url?>home/gallery/natriy">natr</a></li>
-                    <li><a href="<?=$url?>home/gallery/pavlinenki">pavl</a></li>
-                    <li><a href="<?=$url?>home/gallery/mykhailo_anna">Mikle</a></li>
+                    <li><a href="<?=$url?>home/gallery/love">Общее</a></li>
                     <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li class="dropdown-header">Пары</li>
+                    <li><a href="<?=$url?>home/gallery/natriy">Натрий</a></li>
+                    <li><a href="<?=$url?>home/gallery/pavlinenki">Артем и Мира</a></li>
+                    <li><a href="<?=$url?>home/gallery/mykhailo_anna">Миша и Анна</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Wedding <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle <?php echo $cur=='wed'? 'active' : ''; ?>" data-toggle="dropdown">Свадьбы <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="<?=$url?>home/reportage">Reportage</a></li>
                     <li><a href="#">Another action</a></li>
@@ -70,7 +71,9 @@ $url = base_url();
                     <li><a href="#">One more separated link</a></li>
                   </ul>
                 </li>
-                <li><a href="<?=$url?>home/contacts">Info</a></li>
+                <li class="<?php echo $cur=='reportage'? 'active' : ''; ?>"><a href="<?=$url?>home/gallery/reportage">Репортаж</a></li>
+                <li class="<?php echo $cur=='contacts'? 'active' : ''; ?>"><a href="<?=$url?>home/contacts">Контакты</a></li>
+                <!-- <li><a href="#">+3 8 (093) 878 71 72</a></li> -->
               </ul>
             </div>
           </div>
