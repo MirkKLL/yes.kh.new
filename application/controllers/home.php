@@ -2,32 +2,14 @@
 
 class Home extends CI_Controller {
 	private $sFolder;
-	private $aCategories = array(
-		'love' => array(
-			'title' => 'Лав',
-			'description' => 'Эта офигенная история была снята',
-			'main_image' => '01.jpg',
-			),
-		'reportage' => array(
-			'title' => 'Репортаж',
-			'description' => 'пофоткаю и репортажик',
-			'main_image' => '01.jpg',
-			),
-		'portrets' => array(
-			'title' => 'Портреты',
-			'description' => 'Лица людей',
-			'main_image' => '01.jpg',
-			),
-		'natriy' => array(
-			'title' => 'Натрий',
-			'description' => 'Спасибо Гусеву за это',
-			'main_image' => '01.jpg',
-			)
-		 );
+	private $aCategories;
 
 	public function index()
 	{
 		$folder = "home";
+		$this->load->model('Gallery_model');
+		$this->aCategories = $this->Gallery_model->get_category_data();
+
 		$home_images = $this->build_home_carousel();
 		$carousel_indicators = $this->get_home_indicators();
 		$controls = $this->get_gallery_controls();
