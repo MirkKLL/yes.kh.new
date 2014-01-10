@@ -115,6 +115,7 @@ class Home extends CI_Controller {
 
 	public function build_home_carousel()
 	{
+		$url = base_url();
 		$home_images = $this->prepare_home_images();
 		$i = 0;
 		$sHtml = "";
@@ -129,7 +130,7 @@ class Home extends CI_Controller {
 			$sHtml .= '" alt="'.$data['title'].'" />';
 			$sHtml .=	'<div class="container">
 					<div class="carousel-caption">
-						<h1>'.$data['title'].'</h1>
+						<h1><a href="'.$url.'home/gallery/'.$category.'">'.$data['title'].'</a></h1>
 						<p class="lead">'.$data['description'].'</p>
 					</div>
 				</div>
